@@ -1,0 +1,34 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+	  {
+		"type": "npm",
+		"script": "dev",
+		"path": "app-shell",
+		"problemMatcher": [],
+		"label": "npm: dev – app-shell",
+		"detail": "rsbuild dev --open"
+	  },
+	  {
+		"type": "npm",
+		"script": "dev",
+		"path": "app-core",
+		"problemMatcher": [],
+		"label": "npm: dev – app-core",
+		"detail": "rsbuild dev --open"
+	  },
+	  {
+		"label": "Run All Dev Tasks",
+		"dependsOn": [
+		  "npm: dev – app-shell",
+		  "npm: dev – app-core"
+		],
+		"problemMatcher": [],
+		"group": {
+		  "kind": "build",
+		  "isDefault": true
+		}
+	  }
+	]
+  }
+  
