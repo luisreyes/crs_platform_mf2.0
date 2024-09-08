@@ -1,4 +1,18 @@
+# Local
+.DS_Store
+*.local
+
+# Dist
+node_modules
+dist/
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea
+
 # Logs
+*.log*
 logs
 *.log
 npm-debug.log*
@@ -128,3 +142,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+/.vscode
+.vscode/settings.json
+.vscode/settings.json
