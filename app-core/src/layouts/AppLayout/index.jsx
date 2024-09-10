@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
+import React, { Suspense, useContext } from 'react';
 import { PublicLayout, PrivateLayout } from '@layouts';
+import { Loading } from '@components';
 
 //Contexts
 import {
@@ -11,7 +12,7 @@ import {
 } from '@contexts';
 
 const providers = [
-  [AppMonitorProvider, { connectionString: 'process.env.CONNECTION_STRING' }],
+  [AppMonitorProvider, { connectionString: '' }],
   [SecurityProvider],
   [UserProvider],
 ];
@@ -28,7 +29,9 @@ const LayoutRouter = ({ content }) => {
 const AppLayout = ({ children }) => {
   return (
     <Providers providers={providers}>
-      <LayoutRouter>{children}</LayoutRouter>
+      <Suspense fallback={<Loading />}>
+        <LayoutRouter>{children}</LayoutRouter>
+      </Suspense>
     </Providers>
   );
 };

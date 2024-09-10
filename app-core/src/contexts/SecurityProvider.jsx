@@ -86,7 +86,7 @@ export { SecurityProvider, SecurityContext };
 
 const Authentication = ({ setIsAuthenticated, children }) => {
   useEffect(() => {
-    console.log('Security Provider Check');
+    // console.log('Security Provider Check');
     const authCookie = getCookie('auth');
     if (authCookie !== 'true') {
       setIsAuthenticated(false);

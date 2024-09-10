@@ -2,7 +2,7 @@ import { defineConfig } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { ModuleFederationPlugin } from '@module-federation/enhanced/rspack';
-import { dependencies }  from './package.json';
+import { dependencies } from './package.json';
 
 export default defineConfig({
   plugins: [pluginReact(), pluginSass()],
@@ -30,7 +30,6 @@ export default defineConfig({
       plugins: [
         new ModuleFederationPlugin({
           name: 'core_provider',
-          experiments: { federationRuntime: 'hoisted' }, // TODO: Not working properly
           exposes: {
             './layouts': './src/layouts',
           },
@@ -50,3 +49,4 @@ export default defineConfig({
     },
   },
 });
+
