@@ -20,7 +20,7 @@ export default defineConfig({
       '@contexts': './src/contexts',
       '@layouts': './src/layouts',
       '@styles': './src/styles',
-      '@services': './src/services',
+      '@hooks': './src/hooks',
     },
   },
   tools: {
