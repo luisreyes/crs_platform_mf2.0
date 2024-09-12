@@ -1,6 +1,7 @@
 import React, { Suspense, useContext } from 'react';
 import { PublicLayout, PrivateLayout } from '@layouts';
 import { Loading } from '@components';
+import { Remotes } from '@services';
 
 //Contexts
 import {
@@ -17,12 +18,25 @@ const providers = [
   [UserProvider],
 ];
 
-const LayoutRouter = ({ content }) => {
+const LayoutRouter = ({ children }) => {
   const { isRoles } = useContext(UserContext);
+  
+  Remotes.initRemotes([{
+    name: 'dashboard_provider',
+    entry: 'http://localhost:3020/mf-manifest.json',
+  }]);
+
+  const RemoteDashboard = Remotes.useRemote('dashboard_provider', 'Dashboard');
+
   return isRoles && isRoles.some((role) => role === 'Admin') ? (
-    <PrivateLayout>{content}</PrivateLayout>
+    <PrivateLayout>
+      <Suspense fallback={<Loading />}>
+        <RemoteDashboard />
+      </Suspense>
+      {children}
+    </PrivateLayout>
   ) : (
-    <PublicLayout>{content}</PublicLayout>
+    <PublicLayout>{children}</PublicLayout>
   );
 };
 

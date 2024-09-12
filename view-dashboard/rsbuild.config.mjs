@@ -1,39 +1,32 @@
 import { defineConfig } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
-import { pluginSass } from '@rsbuild/plugin-sass';
 import { ModuleFederationPlugin } from '@module-federation/enhanced/rspack';
 import { dependencies } from './package.json';
 
 export default defineConfig({
-  plugins: [pluginReact(), pluginSass()],
-  html: { title: 'CRS - Core' },
+  plugins: [pluginReact()],
+  html: { title: 'CRS - Dashboard' },
   server: {
-    port: 3010,
+    port: 3020,
   },
   dev: {
     // It is necessary to configure assetPrefix, and in the production environment, you need to configure output.assetPrefix
     assetPrefix: true,
   },
-  source: {
-    alias: {
-      '@components': './src/components',
-      '@contexts': './src/contexts',
-      '@layouts': './src/layouts',
-      '@styles': './src/styles',
-      '@services': './src/services',
-    },
-  },
   tools: {
     rspack: {
       output: {
         // You need to set a unique value that is not equal to other applications
-        uniqueName: 'core_provider',
+        uniqueName: 'dashboard_provider',
       },
       plugins: [
         new ModuleFederationPlugin({
-          name: 'core_provider',
+          remoteType: 'script',
+          isServer: true,
+          name: 'dashboard_provider',
+          // filename: 'remoteEntry.js',
           exposes: {
-            './layouts': './src/layouts',
+            './Dashboard': './src/view/App.jsx'
           },
           shared: {
             ...dependencies,

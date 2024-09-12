@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 const AppHeader = ({ children }) => {
   return (
     <header className={[styles.AppHeader].join(' ')}>
-      AppHeader
+      <div>AppHeader</div>
       {children}
     </header>
   );

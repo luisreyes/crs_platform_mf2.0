@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import Button from '@mui/material/Button';
-import { UserContext, SecurityContext } from '@contexts';
+import { SecurityContext } from '@contexts';
 
 const LoginButton = () => {
-  const { isRoles } = useContext(UserContext);
+  
   const { isAuthenticated, login, logout } = useContext(SecurityContext);
   const label = isAuthenticated ? 'Logout' : 'Login';
 
@@ -17,7 +17,6 @@ const LoginButton = () => {
 
   return (
     <>
-      User Role: {isRoles}
       <Button variant="outlined" onClick={onLoginButtonClick}>
         {label}
       </Button>

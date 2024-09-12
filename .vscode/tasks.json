@@ -18,10 +18,19 @@
 		"detail": "rsbuild dev --open"
 	  },
 	  {
+		"type": "npm",
+		"script": "dev",
+		"path": "view-dashboard",
+		"problemMatcher": [],
+		"label": "npm: dev – view-dashboard",
+		"detail": "rsbuild dev --open"
+	  },
+	  {
 		"label": "Run All Dev Tasks",
 		"dependsOn": [
 		  "npm: dev – app-shell",
-		  "npm: dev – app-core"
+		  "npm: dev – app-core",
+		  "npm: dev – view-dashboard"
 		],
 		"problemMatcher": [],
 		"group": {
