@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState, createContext } from 'react';
-import { AppMonitorContext } from '@contexts';
+import { AppMonitorContext } from '@/contexts';
 
 const SecurityContext = createContext(null);
 const { Provider } = SecurityContext;

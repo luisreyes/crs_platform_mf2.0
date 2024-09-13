@@ -12,6 +12,7 @@ const useRemote = (scope, module, port) => {
     registerRemotes([
       {
         name: scope,
+        alias: module,
         entry: `http://localhost:${port}/mf-manifest.json`,
       },
     ]);

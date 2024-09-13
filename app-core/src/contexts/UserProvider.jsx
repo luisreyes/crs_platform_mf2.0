@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect, createContext } from 'react';
-import { AppMonitorContext, SecurityContext } from '@contexts';
+import { AppMonitorContext, SecurityContext } from '@/contexts';
 
 /**
  * A context to manage user information and roles.

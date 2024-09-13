@@ -5,9 +5,9 @@ import { dependencies } from './package.json';
 
 export default defineConfig({
   plugins: [pluginReact()],
-  html: { title: 'CRS - Dashboard' },
+  html: { title: 'CRS - Audits' },
   server: {
-    port: 3020,
+    port: 3030,
   },
   dev: {
     // It is necessary to configure assetPrefix, and in the production environment, you need to configure output.assetPrefix
@@ -17,15 +17,15 @@ export default defineConfig({
     rspack: {
       output: {
         // You need to set a unique value that is not equal to other applications
-        uniqueName: 'dashboard_provider',
+        uniqueName: 'audits_provider',
       },
       plugins: [
         new ModuleFederationPlugin({
           remoteType: 'script',
           isServer: true,
-          name: 'dashboard_provider',
+          name: 'audits_provider',
           exposes: {
-            './Dashboard': './src/view/App.jsx'
+            './Audits': './src/view/App.jsx'
           },
           shared: {
             ...dependencies,

@@ -14,15 +14,7 @@ export default defineConfig({
     // It is necessary to configure assetPrefix, and in the production environment, you need to configure output.assetPrefix
     assetPrefix: true,
   },
-  source: {
-    alias: {
-      '@components': './src/components',
-      '@contexts': './src/contexts',
-      '@layouts': './src/layouts',
-      '@styles': './src/styles',
-      '@hooks': './src/hooks',
-    },
-  },
+  source: { alias: { '@': './src' } },
   tools: {
     rspack: {
       output: {
@@ -51,4 +43,3 @@ export default defineConfig({
     },
   },
 });
-

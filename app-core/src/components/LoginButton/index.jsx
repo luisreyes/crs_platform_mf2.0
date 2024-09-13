@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Button from '@mui/material/Button';
-import { SecurityContext } from '@contexts';
+import { SecurityContext } from '@/contexts';
 
 const LoginButton = () => {
   

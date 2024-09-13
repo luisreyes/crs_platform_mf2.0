@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import styles from './styles.module.scss';
-import '@styles/global.scss';
-import { AppHeader } from '@layouts';
-import { LoginButton } from '@components';
-import { UserContext } from '@contexts';
+import '@/styles/global.scss';
+import { AppHeader } from '@/layouts';
+import { LoginButton } from '@/components';
+import { UserContext } from '@/contexts';
 
 const PrivateLayout = ({ children }) => {
   const { isRoles } = useContext(UserContext);

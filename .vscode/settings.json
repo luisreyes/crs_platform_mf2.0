@@ -5,7 +5,24 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "**/Thumbs.db": true
+        "**/Thumbs.db": true,
+        "app-core/pnpm-lock.yaml": true,
+        "app-core/node_modules": true,
+        "app-shell/pnpm-lock.yaml": true,
+        "app-shell/node_modules": true,
+        "view-audits/node_modules": true,
+        "view-audits/pnpm-lock.yaml": true,
+        "view-dashboard/node_modules": true,
+        "view-dashboard/pnpm-lock.yaml": true
     },
-    "hide-files.files": []
+    "hide-files.files": [
+        "app-core/pnpm-lock.yaml",
+        "app-core/node_modules",
+        "app-shell/pnpm-lock.yaml",
+        "app-shell/node_modules",
+        "view-audits/node_modules",
+        "view-audits/pnpm-lock.yaml",
+        "view-dashboard/node_modules",
+        "view-dashboard/pnpm-lock.yaml"
+    ]
 }

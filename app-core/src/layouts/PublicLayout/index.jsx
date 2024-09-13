@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import { AppHeader } from '@layouts';
-import { LoginButton } from '@components';
+import { AppHeader } from '@/layouts';
+import { LoginButton } from '@/components';
 
 const PublicLayout = ({ children }) => {
   return (
