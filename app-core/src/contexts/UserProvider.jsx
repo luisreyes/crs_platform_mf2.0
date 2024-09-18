@@ -17,7 +17,7 @@ const UserProvider = (props) => {
   const { isAuthenticated } = useContext(SecurityContext);
 
   // Context's State
-  const [isRoles, setRoles] = useState([]);
+  const [roles, setRoles] = useState([]);
 
   // Context's Methods
   // NO PUBLIC METHODS
@@ -27,9 +27,10 @@ const UserProvider = (props) => {
     if (isAuthenticated) {
       // TODO: Get and set user roles.
       appMonitor.trackTrace('Set User Roles');
-      //setRoles(['Admin']);
-      // setRoles(["Client"]);
-      setRoles(["Admin", "Client"]);
+      setRoles(['Admin']);
+      // setRoles(['User']);
+      // setRoles(['Admin', 'User']);
+      // setRoles(['User', 'Auditor']);
     } else {
       setRoles(['Public']);
     }
@@ -37,7 +38,7 @@ const UserProvider = (props) => {
 
   // Values to provide to child components
   const values = {
-    isRoles,
+    roles,
   };
 
   return <Provider value={values}>{props.children}</Provider>;

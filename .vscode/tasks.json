@@ -26,11 +26,20 @@
 		"detail": "rsbuild dev --open"
 	  },
 	  {
+		"type": "npm",
+		"script": "dev",
+		"path": "view-audits",
+		"problemMatcher": [],
+		"label": "npm: dev – view-audits",
+		"detail": "rsbuild dev --open"
+	  },
+	  {
 		"label": "Run All Dev Tasks",
 		"dependsOn": [
 		  "npm: dev – app-shell",
 		  "npm: dev – app-core",
-		  "npm: dev – view-dashboard"
+		  "npm: dev – view-dashboard",
+		  "npm: dev – view-audits"
 		],
 		"problemMatcher": [],
 		"group": {

@@ -6,11 +6,11 @@ import { LoginButton } from '@/components';
 import { UserContext } from '@/contexts';
 
 const PrivateLayout = ({ children }) => {
-  const { isRoles } = useContext(UserContext);
+  const { roles } = useContext(UserContext);
   return (
     <main className={[styles.PrivateLayout].join(' ')}>
       Private Layout
-      <small className={"small"}>User Role: {isRoles}</small>
+      <small className={"small"}>User Role: {roles}</small>
       <AppHeader>
         <LoginButton />
       </AppHeader>
