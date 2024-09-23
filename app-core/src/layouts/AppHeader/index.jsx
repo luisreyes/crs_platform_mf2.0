@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './styles.module.scss';
 
-const AppHeader = ({ children }) => {
+const AppHeader = ({ children, mode }) => {
   return (
     <header className={[styles.AppHeader].join(' ')}>
-      <div>AppHeader</div>
+      {mode}
       {children}
     </header>
   );

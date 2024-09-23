@@ -1,0 +1,38 @@
+.NavigationBar {
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: 20px;
+    background: white;
+    border-radius: 100px;
+    padding: 0.25em 0.75em;
+  }
+
+  a {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+
+    &:hover {
+      color: #89c20e;
+    }
+  }
+
+  .active {
+    color: #89c20e;
+    font-weight: bold;
+  }
+
+  .pending {
+    color: orange;
+  }
+
+  .transitioning {
+    view-transition-name: "nav-slide";
+  }
+}

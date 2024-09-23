@@ -1,10 +1,11 @@
 import { defineConfig } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
+import { pluginSass } from '@rsbuild/plugin-sass';
 import { ModuleFederationPlugin } from '@module-federation/enhanced/rspack';
 import { dependencies } from './package.json';
 
 export default defineConfig({
-  plugins: [pluginReact()],
+  plugins: [pluginReact(), pluginSass()],
   html: { title: 'CRS - Dashboard' },
   server: {
     port: 3020,
@@ -25,7 +26,7 @@ export default defineConfig({
           isServer: true,
           name: 'dashboard_provider',
           exposes: {
-            './Dashboard': './src/view/App.jsx'
+            './Dashboard': './src/view/Dashboard.jsx'
           },
           shared: {
             ...dependencies,

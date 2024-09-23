@@ -11,11 +11,6 @@ const LayoutRouter = ({ children, accessRoles, isPrivate, module }) => {
     [accessRoles, userRoles],
   );
 
-  useEffect(() => {
-    console.log('LayoutRouter', module);
-    console.log(module, 'canAccess', canAccess, 'isPrivate', isPrivate);
-  }, [module, canAccess, isPrivate]); // Updated dependency array
-
   // If the route is public, render the PublicLayout
   if (!isPrivate) {
     return <PublicLayout>{children}</PublicLayout>;

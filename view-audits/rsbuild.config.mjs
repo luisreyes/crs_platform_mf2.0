@@ -1,10 +1,11 @@
 import { defineConfig } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
+import { pluginSass } from '@rsbuild/plugin-sass';
 import { ModuleFederationPlugin } from '@module-federation/enhanced/rspack';
 import { dependencies } from './package.json';
 
 export default defineConfig({
-  plugins: [pluginReact()],
+  plugins: [pluginReact(), pluginSass()],
   html: { title: 'CRS - Audits' },
   server: {
     port: 3030,
@@ -25,7 +26,7 @@ export default defineConfig({
           isServer: true,
           name: 'audits_provider',
           exposes: {
-            './Audits': './src/view/App.jsx'
+            './Audits': './src/view/Audits.jsx'
           },
           shared: {
             ...dependencies,

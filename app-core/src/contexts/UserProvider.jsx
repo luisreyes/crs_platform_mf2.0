@@ -28,9 +28,9 @@ const UserProvider = (props) => {
       // TODO: Get and set user roles.
       appMonitor.trackTrace('Set User Roles');
       // setRoles(['Admin']);
-      setRoles(['User']);
+      // setRoles(['User']);
       // setRoles(['Admin', 'User']);
-      // setRoles(['User', 'Auditor']);
+      setRoles(['User', 'Auditor']);
     } else {
       setRoles(['Public']);
     }

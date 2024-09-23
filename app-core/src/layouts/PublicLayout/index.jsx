@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './styles.module.scss';
 import { AppHeader } from '@/layouts';
-import { LoginButton } from '@/components';
+import { LoginButton, NavigationBar } from '@/components';
 
 const PublicLayout = ({ children }) => {
   return (
     <main className={[styles.PublicLayout].join(' ')}>
-      Public Layout
-      <AppHeader>
+      <AppHeader mode={"public"}>
+      <NavigationBar />
         <LoginButton />
       </AppHeader>
       <section>{children}</section>
