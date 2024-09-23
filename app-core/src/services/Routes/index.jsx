@@ -5,23 +5,25 @@ import { LayoutRouter } from '@/layouts';
 import routesConfig from '~/routes.json';
 
 // Dynamically create remote components
-const getRemoteComponent = (scope, module, port, roles) => {
-  const RemoteComponent = useRemote(scope, module, port);
+const getRemoteComponent = (scope, module, port, roles, isPrivate) => {
+  const RemoteComponent = useRemote(scope, module, port, isPrivate);
 
   return (
     <Suspense fallback={<Loading />} key={`${scope}-${module}`}>
-      <LayoutRouter accessRoles={roles}>
+      <LayoutRouter accessRoles={roles} isPrivate={isPrivate} module={module}>
         <RemoteComponent />
       </LayoutRouter>
     </Suspense>
   );
 };
 
-const Routes = routesConfig.map(({ path, scope, module, port, roles }) => {
+const Routes = routesConfig.map(({ path, scope, module, port, roles, isPrivate }) => {
   return {
     path,
-    element: getRemoteComponent(scope, module, port, roles),
+    element: getRemoteComponent(scope, module, port, roles, isPrivate),
   };
 });
 
-export const AllRoutes = [...Routes];
+console.log("Routes", Routes);
+
+export default Routes;

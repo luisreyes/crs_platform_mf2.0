@@ -4,13 +4,15 @@
         "scope": "dashboard_provider",
         "module": "Dashboard",
         "port": 3020,
-        "roles": ["Public"]
+        "isPrivate": false,
+        "roles": []
     },
     {
         "path": "/audit",
         "scope": "audits_provider",
         "module": "Audits",
         "port": 3030,
+        "isPrivate": true,
         "roles": [
             "Admin",
             "Auditor"

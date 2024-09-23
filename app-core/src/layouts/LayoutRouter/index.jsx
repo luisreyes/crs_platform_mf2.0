@@ -1,8 +1,8 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
 import { UserContext } from '@/contexts';
 import { PublicLayout, PrivateLayout } from '@/layouts';
 
-const LayoutRouter = ({ accessRoles, children }) => {
+const LayoutRouter = ({ children, accessRoles, isPrivate, module }) => {
   const { roles: userRoles } = useContext(UserContext);
 
   // Memoize the access check to prevent unnecessary recalculations
@@ -11,17 +11,19 @@ const LayoutRouter = ({ accessRoles, children }) => {
     [accessRoles, userRoles],
   );
 
-  // If the route is public (i.e., it allows 'Public' access), always render the PublicLayout
-  if (accessRoles.includes('Public')) {
-    return <PublicLayout>{children}</PublicLayout>;
-  }
+  useEffect(() => {
+    console.log('LayoutRouter', module);
+    console.log(module, 'canAccess', canAccess, 'isPrivate', isPrivate);
+  }, [module, canAccess, isPrivate]); // Updated dependency array
 
-  // If the user can access the route based on roles, render the PrivateLayout
-  return canAccess ? (
-    <PrivateLayout>{children}</PrivateLayout>
-  ) : (
-    <PrivateLayout>No Access</PrivateLayout> // User lacks the necessary roles
-  );
+  // If the route is public, render the PublicLayout
+  if (!isPrivate) {
+    return <PublicLayout>{children}</PublicLayout>;
+  } else if (isPrivate && !canAccess) {
+    return <PrivateLayout>No Access</PrivateLayout>;
+  } else {
+    return <PrivateLayout>{children}</PrivateLayout>;
+  }
 };
 
 export default LayoutRouter;

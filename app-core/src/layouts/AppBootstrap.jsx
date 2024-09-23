@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { AllRoutes } from '@/services/Routes';
+import Routes from '@/services/Routes';
 import {
   Providers,
   AppMonitorProvider,
@@ -10,7 +10,7 @@ import {
 } from '@/contexts';
 
 // Create router instance
-const router = createBrowserRouter(AllRoutes, {
+const router = createBrowserRouter(Routes, {
   future: { v7_normalizeFormMethod: true },
 });
 
