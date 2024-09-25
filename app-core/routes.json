@@ -1,17 +1,28 @@
 [
     {
+        "path": "/login",
+        "module": "Login",
+        "isNavigation": false,
+        "isPrivate": false,
+        "roles": []
+    },
+    {
         "path": "/",
         "scope": "dashboard_provider",
         "module": "Dashboard",
         "port": 3020,
-        "isPrivate": false,
-        "roles": []
+        "isNavigation": true,
+        "isPrivate": true,
+        "roles": [
+            "User"
+        ]
     },
     {
         "path": "/audit",
         "scope": "audits_provider",
         "module": "Audits",
         "port": 3030,
+        "isNavigation": true,
         "isPrivate": true,
         "roles": [
             "Admin",

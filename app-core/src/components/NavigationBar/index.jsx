@@ -18,9 +18,9 @@ const NavigationBar = () => {
   return (
     <nav className={styles.NavigationBar}>
       <ul>
-        {routesConfig.map(({ path, module, isPrivate, roles: routeRoles }) => {
+        {routesConfig.map(({ path, module, isPrivate, roles: routeRoles, isNavigation }) => {
           // Only render the link if the user has access (public or role-based)
-          if (hasAccess(routeRoles, isPrivate)) {
+          if (hasAccess(routeRoles, isPrivate) && isNavigation) {
             return (
               <li key={path}>
                 <NavLink

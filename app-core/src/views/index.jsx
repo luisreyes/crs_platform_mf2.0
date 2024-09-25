@@ -1,2 +1,1 @@
-export { default as DashboardView } from './DashboardView';
-export { default as AuditView } from './AuditView';
+export { default as Login } from './Login';
