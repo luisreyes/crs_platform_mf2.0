@@ -29,12 +29,14 @@ const deleteCookie = (name) => {
  */
 const SecurityProvider = ({ children }) => {
   const { appMonitor } = useContext(AppMonitorContext);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(null); // Initialize as null
 
   useEffect(() => {
     const authCookie = getCookie('auth');
     if (authCookie === 'true') {
       setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
     }
   }, []);
 
@@ -58,11 +60,7 @@ const SecurityProvider = ({ children }) => {
 
   const values = { isAuthenticated, login, logout };
 
-  return (
-    <Provider value={values}>
-      {children}
-    </Provider>
-  );
+  return <Provider value={values}>{children}</Provider>;
 };
 
 export { SecurityProvider, SecurityContext };

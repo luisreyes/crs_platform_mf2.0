@@ -7,7 +7,7 @@ const PublicLayout = ({ children }) => {
   return (
     <main className={[styles.PublicLayout].join(' ')}>
       <AppHeader mode={"public"}>
-      <NavigationBar />
+        <NavigationBar />
         <LoginButton />
       </AppHeader>
       <section>{children}</section>
