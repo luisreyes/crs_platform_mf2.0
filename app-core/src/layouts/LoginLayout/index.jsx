@@ -1,15 +1,15 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import { AppHeader } from '@/layouts';
-import { NavigationBar } from '@/components';
 
 const LoginLayout = ({ children }) => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <main className={[styles.LoginLayout].join(' ')}>
-      <AppHeader mode={"login"}>
-        <NavigationBar />
-      </AppHeader>
-      <section>{children}</section>
+    <main className={styles.LoginLayout}>
+      <section id="main-content">{children}</section>
+      <footer id="main-footer">
+        &copy;<span>{currentYear}</span> CRS Groups Innovations
+      </footer>
     </main>
   );
 };

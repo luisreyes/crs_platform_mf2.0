@@ -2,6 +2,7 @@ import React, { useContext, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext, SecurityContext } from '@/contexts';
 import { PublicLayout, PrivateLayout } from '@/layouts';
+import { Loading } from '@/components';
 
 const LayoutRouter = ({ children, accessRoles = [], isPrivate }) => {
   const { roles: userRoles } = useContext(UserContext);
@@ -24,7 +25,7 @@ const LayoutRouter = ({ children, accessRoles = [], isPrivate }) => {
 
   // Display a loading state while authentication status is being determined
   if (isPrivate && (isAuthenticated === null || isAuthenticated === undefined)) {
-    return <div>Loading...</div>;
+    return <Loading/>;
   }
 
   if (!isPrivate) {

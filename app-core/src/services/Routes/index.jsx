@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
-import { Loading } from '@/components';
+import { Loading, LayoutRouter } from '@/components';
 import { useRemote } from '@/hooks';
-import { LayoutRouter, LoginLayout } from '@/layouts';
+import { LoginLayout } from '@/layouts';
 import routesConfig from '~/routes.json';
 
 // Dynamically create a component (either remote or local)

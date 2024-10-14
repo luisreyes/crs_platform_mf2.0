@@ -1,0 +1,42 @@
+.Login {
+  display: flex;
+
+  .container {
+    height: 100px;
+    padding: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  hr {
+    border: none;
+    border-right: 1px solid #ccc;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    label {
+      letter-spacing: 0.025em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+      font-size: 10px;
+    }
+
+    input {
+      padding: 0.5em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.5em;
+    }
+  }
+}

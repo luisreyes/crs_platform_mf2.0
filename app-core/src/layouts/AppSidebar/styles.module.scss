@@ -1,0 +1,6 @@
+.AppSidebar {
+  grid-area: Sidebar;
+  color: var(--sidebar-color);
+  background: var(--sidebar-background-color);
+  border-right: 1px solid var(--sidebar-border-color);
+}

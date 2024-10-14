@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { UserContext } from '@/contexts';
 import routesConfig from '~/routes.json'; // Import routes from routes.json file
 import styles from './styles.module.scss';
+import { LoginButton } from '@/components';
 
 const NavigationBar = () => {
   const { roles } = useContext(UserContext);
@@ -41,6 +42,9 @@ const NavigationBar = () => {
           }
           return null; // Don't render if access is restricted
         })}
+        <li className={styles.LoginButton}>
+        <LoginButton variant="text"/>
+        </li>
       </ul>
     </nav>
   );

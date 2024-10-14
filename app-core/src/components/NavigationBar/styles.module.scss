@@ -1,31 +1,77 @@
 .NavigationBar {
+  width: 175px; /* Width of the sidebar */
+  height: 100%;
   ul {
     list-style: none;
+    display: flex;
+    flex-direction: column;
     padding: 0;
+    margin: 0;
+    height: 100%;
   }
 
   li {
-    display: inline-block;
-    margin-right: 20px;
-    background: white;
-    border-radius: 100px;
-    padding: 0.25em 0.75em;
+    display: block;
+    position: relative;
   }
 
-  a {
-    text-decoration: none;
-    color: #666;
-    font-size: 14px;
-    transition: color 0.3s ease, font-weight 0.3s ease;
+  li.LoginButton button {
+    padding: 0.5em 0.75em;
+    font-size: 85%;
+    display: block;
+    text-align: left;
+  }
+  li.LoginButton,
+  button {
+    width: 100%;
+    margin-top: auto;
+    border-radius: 0;
+    color: var(--nav-link-login-color) !important;
+    background-color: var(--nav-link-login-background-color) !important;
+    // box-shadow: inset 0px 20px 10px -20px #858585;
 
     &:hover {
-      color: #89c20e;
+      color: var(--nav-link-login-hover-color) !important;
+      background-color: var(--nav-link-login-hover-background-color) !important;
+      // box-shadow: inset 0px 15px 10px -20px #656565;
     }
   }
 
+  a,
+  button {
+    text-decoration: none;
+    text-transform: none;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    display: flex; /* Flexbox to align icon and label */
+    align-items: center; /* Center icon and text vertically */
+    padding: 0.75em;
+    color: var(--nav-link-color);
+    background-color: var(--nav-link-background-color);
+    transition:
+      color 0.3s ease,
+      box-shadow 0.3s ease,
+      font-weight 0.15s ease,
+      background 0.3s ease;
+  }
+
+  a:hover {
+    color: var(--nav-link-hover-color);
+    background-color: var(--nav-link-hover-background-color);
+    background-color: #e0e0e0;
+  }
+
   .active {
-    color: #89c20e;
-    font-weight: bold;
+    color: var(--nav-link-active-color);
+    background-color: var(--nav-link-active-background-color);
+  }
+
+  /* Icon styling */
+  .icon {
+    margin-right: 10px; /* Space between icon and label */
+    width: 20px;
+    height: 20px;
   }
 
   .pending {
@@ -33,6 +79,6 @@
   }
 
   .transitioning {
-    view-transition-name: "nav-slide";
+    view-transition-name: 'nav-slide';
   }
 }

@@ -1,23 +1,25 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styles from './styles.module.scss';
 import '@/styles/global.scss';
-import { AppHeader } from '@/layouts';
-import { LoginButton, NavigationBar } from '@/components';
-import { UserContext } from '@/contexts';
+import { AppSidebar, AppFooter } from '@/layouts';
+import { NavigationBar } from '@/components';
 
 const PrivateLayout = ({ children }) => {
-  const { roles } = useContext(UserContext);
+  const currentYear = new Date().getFullYear();
 
   return (
     <main className={styles.PrivateLayout}>
-      <AppHeader mode={"private"}>
+      
+      <AppSidebar>
         <NavigationBar />
-        <LoginButton />
-      </AppHeader>
-      <section>{children}</section>
-      <footer>
-        <small className="small">User Role: {roles.join(', ')}</small>
-      </footer>
+      </AppSidebar>
+      
+      <section className={styles.Content}>{children}</section>
+      
+      <AppFooter>
+        &copy;<span>{currentYear}</span> CRS Groups Innovations
+      </AppFooter>
+
     </main>
   );
 };
